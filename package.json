@@ -1,5 +1,6 @@
 {
-  "name": "party",
+  "name": "phase",
+  "private": true,
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/montyanderson/party.git"
+    "url": "git+https://github.com/montyanderson/phase.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/montyanderson/party/issues"
+    "url": "https://github.com/montyanderson/phase/issues"
   },
-  "homepage": "https://github.com/montyanderson/party#readme",
+  "homepage": "https://github.com/montyanderson/phase#readme",
   "dependencies": {
     "@google/maps": "^0.1.0",
     "babel-polyfill": "^6.13.0",
