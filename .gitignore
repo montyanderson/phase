@@ -1,0 +1,7 @@
+node_modules
+static/*.js
+static/*.css
+*.log
+redis-*
+*.rdb
+keys.js*

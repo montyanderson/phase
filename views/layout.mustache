@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet" />
+        <link href="/index.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper z-depth-1 red darken-2">
+                <div class="container">
+                    <a href="/" class="brand-logo offset-l2">Phase</a>
+                    <ul id="nav-mobile" class="right">
+
+                        {{#req.user.id}}
+                        <li>
+                            <a href="/">
+                                <i class="small material-icons" alt="Dashboard">dashboard</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="modal-trigger" href="#modal-submit" alt="New Event">
+                                <i class="small material-icons">queue</i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/logout" alt="Logout">
+                                <i class="small material-icons">open_in_new</i>
+                            </a>
+                        </li>
+                        {{/req.user.id}}
+
+                        {{^req.user}}
+                        <li>
+                            <a href="/auth/facebook" class="waves-effect waves-light btn blue darken-4">Facebook</a>
+                        </li>
+                        <li>
+                            <a href="/auth/google" class="waves-effect waves-light btn deep-orange darken-3">Google</a>
+                        </li>
+                        {{/req.user}}
+
+                        <li><a href="/user/{{req.user.id}}">{{req.user.displayName}}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div id="modal-submit" class="modal">
+            <form class="modal-content">
+                    <h4 class="red-text text-darken-2">Add Your Event</h4>
+                    <div class="input-field col s6 red-text text-darken-2">
+                        <i class="material-icons prefix red-text text-darken-2">forum</i>
+                        <input type="text" class="validate" name="name">
+                        <label for="icon_prefix">Event Name</label>
+                    </div>
+                    <div class="input-field col s6 red-text text-darken-2">
+                        <i class="material-icons prefix red-text text-darken-2">person_pin</i>
+                        <input type="text" class="validate address" name="address">
+                        <!--<label for="icon_prefix">Address</label>-->
+                    </div>
+                    <input type="date" class="datepicker" name="date">
+                    <div class="switch">
+                        <label>
+                        Public
+                        <input type="checkbox" class="red">
+                        <span class="lever red darken-2"></span>
+                        Private
+                    </label>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <a href="#!" id="submit-event" class=" modal-action modal-close btn-flat red darken-2 white-text">Add Event</a>
+            </div>
+        </div>
+
+        <div class="container row">
+            <!--Start View-->
+            {{{view}}}
+            <!--End View-->
+        </div>
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+            <script src="/index.js"></script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVFp946HWnXXDTS-GH2zMUGb-BRmc5n9c&libraries=places&callback=initAutocomplete" async defer></script>
+
+    </body>
+</html>
